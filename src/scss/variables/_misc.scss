@@ -1,0 +1,8 @@
+@use "sass:color";
+@use "colors" as *;
+
+// Box Shadow
+$box-shadow: 0 0.8rem 1.6rem 0 color.adjust($color-black, $alpha: -0.8);
+
+// Animations
+$timing: 250ms;
