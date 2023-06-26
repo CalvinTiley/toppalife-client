@@ -1,0 +1,8 @@
+@use "../../scss/mixins";
+
+.button {
+    border: none;
+    padding: 0;
+
+    @include mixins.button-variant("primary", transparent, var(--color-primary));
+}

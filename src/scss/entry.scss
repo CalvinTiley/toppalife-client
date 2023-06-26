@@ -1,2 +1,6 @@
-@use "layout";
+@use "global";
 @use "typography";
+
+@use "../components/Button/button";
+@use "../components/Icon/icon";
+@use "../components/MobileBottomBar/mobile-bottom-bar";

@@ -1,19 +1,16 @@
-// General
-$color-1: #4A3277;
-$color-2: #8f72c5;
-$color-3: #7deba0;
+@mixin colors {
+    --color-primary: #5F33E1;
 
-$color-black: #000000;
-$color-gray-1: #F9F9F9;
-$color-gray-2: #eaeaea;
-$color-gray-3: #D3D3D3;
-$color-gray-4: #A5A5A5;
-$color-gray-5: #808080;
-$color-gray-6: #383838;
-$color-white: #ffffff;
+    --color-background-1: #efe9ff;
 
-// Semantic
-$color-success: #47D764;
-$color-error: #FF355B;
-$color-info: #2F86EB;
-$color-warning: #FFC021;
+    --color-gray-1: #F9F9F9;
+    --color-gray-2: #eaeaea;
+    --color-gray-3: #D3D3D3;
+    --color-gray-4: #A5A5A5;
+    --color-gray-5: #808080;
+    --color-gray-6: #383838;
+
+    --color-progress-start: #E7F3FF;
+    --color-progress-middle: #FFE9E1;
+    --color-progress-end: #e1ffe4;
+}

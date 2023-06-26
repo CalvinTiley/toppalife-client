@@ -9,17 +9,11 @@
 ) {
     &.button--#{$name} {
         background-color: $bgColor;
-
-        .button__label {
-            color: $textColor;
-        }
+        color: $textColor;
 
         &:hover {
             background-color: $bgColor--hover;
-
-            .button__label {
-                color: $textColor--hover;
-            }
+            color: $textColor--hover;
         }
 
         &:focus,
@@ -31,18 +25,12 @@
         &.button--outlined {
             border-color: currentColor;
             background-color: transparent;
-
-            .button__label {
-                color: $textColor;
-            }
+            color: $textColor;
 
             &:hover {
                 border-color: $bgColor--hover;
                 background-color: $bgColor--hover;
-
-                .button__label {
-                    color: $textColor--hover;
-                }
+                color: $textColor--hover;
             }
 
             &:focus,

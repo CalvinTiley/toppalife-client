@@ -1,5 +1,15 @@
 @use "mixins" as *;
-@use "variables" as *;
+@use "variables";
+
+:root {
+    @include variables.breakpoints;
+    @include variables.colors;
+    @include variables.miscellaneous;
+    @include variables.typography;
+
+    font-size: 62.5%;
+    font-family: var(--font-family-main), var(--font-fallback);
+}
 
 *,
 * > * {

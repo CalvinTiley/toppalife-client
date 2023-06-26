@@ -1,5 +1,0 @@
-@mixin dimensions($unit, $verticalUnit: $unit) {
-    width: $unit;
-    min-width: $unit;
-    padding-bottom: $verticalUnit;
-}

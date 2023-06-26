@@ -1,22 +1,38 @@
 import classNames from "classnames";
+import { Link } from "react-router-dom";
 
-interface ButtonProps {
+interface ButtonsProps {
     children: React.ReactNode;
-    testId?: string;
+    className?: string | string[];
+    href?: string;
+    onClick?(event?: React.MouseEvent): void;
     variant?: "primary" | "secondary";
 }
 
 export const Button = ({
     children,
-    testId,
+    className,
+    href,
+    onClick,
     variant = "primary",
-}: ButtonProps) => {
+}: ButtonsProps) => {
     return (
-        <button
-            className={classNames("button", `button--${variant}`)}
-            data-testid={testId}
-        >
-            {children}
-        </button>
+        <>
+            {href ? (
+                <Link
+                    to={href}
+                    className={classNames("button", "button--link", `button--${variant}`, className)}
+                >
+                    {children}
+                </Link>
+            ) : (
+                <button
+                    className={classNames("button", `button--${variant}`, className)}
+                    onClick={onClick}
+                >
+                    {children}
+                </button>
+            )}
+        </>
     );
 };

@@ -1,5 +1,3 @@
-@use "../variables" as *;
-
 @mixin breakpoint($screensize) {
     @media only screen and (min-width: $screensize) {
         @content;
@@ -7,25 +5,25 @@
 }
 
 @mixin mobile {
-    @include breakpoint($breakpoint-mobile) {
+    @include breakpoint(var(--breakpoint-mobile)) {
         @content;
     }
 }
 
 @mixin tablet {
-    @include breakpoint($breakpoint-tablet) {
+    @include breakpoint(var(--breakpoint-tablet)) {
         @content;
     }
 }
 
 @mixin desktop {
-    @include breakpoint($breakpoint-desktop) {
+    @include breakpoint(var(--breakpoint-desktop)) {
         @content;
     }
 }
 
 @mixin desktop-large {
-    @include breakpoint($breakpoint-desktop-large) {
+    @include breakpoint(var(--breakpoint-desktop-large)) {
         @content;
     }
 }
