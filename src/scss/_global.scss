@@ -1,8 +1,7 @@
-@use "mixins";
+@use "mixins" as *;
 @use "variables";
 
 :root {
-    @include variables.breakpoints;
     @include variables.colors;
     @include variables.miscellaneous;
     @include variables.typography;
@@ -33,7 +32,7 @@ main {
     overflow: hidden;
     padding: 2rem;
 
-    @include mixins.desktop {
+    @include desktop {
         padding: 4rem;
     }
 }

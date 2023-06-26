@@ -5,25 +5,25 @@
 }
 
 @mixin mobile {
-    @include breakpoint(var(--breakpoint-mobile)) {
+    @include breakpoint(576px) {
         @content;
     }
 }
 
 @mixin tablet {
-    @include breakpoint(var(--breakpoint-tablet)) {
+    @include breakpoint(768px) {
         @content;
     }
 }
 
 @mixin desktop {
-    @include breakpoint(var(--breakpoint-desktop)) {
+    @include breakpoint(992px) {
         @content;
     }
 }
 
 @mixin desktop-large {
-    @include breakpoint(var(--breakpoint-desktop-large)) {
+    @include breakpoint(1600px) {
         @content;
     }
 }
