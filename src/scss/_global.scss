@@ -1,4 +1,4 @@
-@use "mixins" as *;
+@use "mixins";
 @use "variables";
 
 :root {
@@ -33,7 +33,7 @@ main {
     overflow: hidden;
     padding: 2rem;
 
-    @include desktop {
+    @include mixins.desktop {
         padding: 4rem;
     }
 }

@@ -1,3 +1,5 @@
+@use "../../scss/mixins";
+
 .mobile-bottom-bar {
     display: flex;
     align-items: center;
@@ -13,6 +15,10 @@
     border-top-right-radius: 2.5rem;
 
     background-color: var(--color-background-1);
+
+    @include mixins.tablet {
+        display: none;
+    }
 
     &__container {
         display: flex;
