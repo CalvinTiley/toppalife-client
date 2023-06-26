@@ -11,15 +11,10 @@
 @include mixins.font-import("Roboto", "Roboto-MediumItalic.ttf", italic, 500);
 @include mixins.font-import("Roboto", "Roboto-BoldItalic.ttf", italic, 600);
 
-html {
-    font-size: 10px;
-    font-family: var(--font-family-main), var(--font-fallback);
-}
-
 textarea,
 input,
 button {
-    font-family: var(--font-family-main), var(--font-fallback);
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
 
 body {

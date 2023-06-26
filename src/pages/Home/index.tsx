@@ -1,7 +1,9 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
+
+import { UserGreeting } from "../../components/UserGreeting";
 
 export const Home = () => {
-    useEffect(() => {
+    /* useEffect(() => {
         fetch(`${import.meta.env.VITE_API_URL}/auth/login`, {
             method: "POST",
             mode: "cors",
@@ -15,12 +17,11 @@ export const Home = () => {
             },
             referrerPolicy: "no-referrer",
         });
-    }, []);
-
+    }, []); */
 
     return (
-        <div className="page page--home">
-            <h1>Home</h1>
-        </div>
+        <main className="page page--home">
+            <UserGreeting />
+        </main>
     );
 };

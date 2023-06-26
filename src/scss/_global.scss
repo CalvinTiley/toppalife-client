@@ -4,10 +4,9 @@
 :root {
     @include variables.colors;
     @include variables.miscellaneous;
-    @include variables.typography;
 
     font-size: 62.5%;
-    font-family: var(--font-family-main), var(--font-fallback);
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
 
 *,
@@ -30,7 +29,7 @@ main {
     flex-grow: 1;
 
     overflow: hidden;
-    padding: 2rem;
+    padding: 3rem 2rem 9.5rem;
 
     @include desktop {
         padding: 4rem;

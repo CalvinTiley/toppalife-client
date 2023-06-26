@@ -1,0 +1,38 @@
+.user-greeting {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    &__photo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+
+        background-color: var(--color-primary);
+    }
+
+    &__initial {
+        color: white;
+
+        font-size: 2.4rem;
+    }
+
+    &__text {
+        flex-grow: 1;
+        display: grid;
+        gap: 0.5rem;
+    }
+
+    &__welcome {
+        font-weight: 500;
+    }
+
+    &__name {
+        font-size: 2rem;
+        font-weight: 600;
+    }
+}
