@@ -2,8 +2,10 @@
 @use "typography";
 
 @use "../components/Button/button";
+@use "../components/Donut/donut";
 @use "../components/Icon/icon";
 @use "../components/MobileBottomBar/mobile-bottom-bar";
+@use "../components/TodaysTasks/todays-tasks";
 @use "../components/UserGreeting/user-greeting";
 
 @use "../pages/Home/page-home";

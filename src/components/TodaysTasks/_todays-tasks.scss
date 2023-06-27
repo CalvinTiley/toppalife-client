@@ -1,0 +1,40 @@
+@use "../../scss/mixins";
+
+.todays-tasks {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2rem;
+
+    padding: 2rem;
+    border-radius: 2rem;
+
+    background-color: var(--color-primary);
+    color: white;
+
+    @include mixins.mobile {
+        flex-direction: row;
+    }
+
+    &__text {
+        text-align: center;
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    &__progress {
+        flex: 1;
+
+        line-height: 2.5rem;
+    }
+
+    .button__todays-tasks {
+        text-align: left;
+    }
+
+    &__completion {
+        flex: 3;
+    }
+}

@@ -19,14 +19,12 @@ body {
 }
 
 #root {
-    display: flex;
-    flex-direction: column;
-
     min-height: 100vh;
 }
 
 main {
-    flex-grow: 1;
+    display: grid;
+    gap: 2rem;
 
     overflow: hidden;
     padding: 3rem 2rem 9.5rem;

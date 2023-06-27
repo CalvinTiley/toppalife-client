@@ -5,7 +5,7 @@
 }
 
 @mixin mobile {
-    @include breakpoint(576px) {
+    @include breakpoint(320px) {
         @content;
     }
 }

@@ -36,6 +36,8 @@
 
     .button--mobile-bar-navigation {
         padding-inline: 1rem;
+        background-color: transparent;
+        color: var(--color-primary);
 
         .icon {
             width: 2.4rem;
