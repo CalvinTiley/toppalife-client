@@ -1,7 +1,8 @@
-import { Tag } from "./tag";
-
 export interface Task {
+    current: number;
     due_date: string;
-    tags?: Tag[];
+    priority: "Very High" | "High" | "Medium" | "Low" | "Very Low";
+    tags?: string[];
     title: string;
+    total: number;
 }

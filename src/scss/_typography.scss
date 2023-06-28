@@ -1,20 +1,24 @@
 @use "variables" as *;
 @use "mixins";
 
-@include mixins.font-import("Roboto", "Roboto-Light.ttf", normal, 300);
-@include mixins.font-import("Roboto", "Roboto-Regular.ttf", normal, 400);
-@include mixins.font-import("Roboto", "Roboto-Medium.ttf", normal, 500);
-@include mixins.font-import("Roboto", "Roboto-Bold.ttf", normal, 600);
+@include mixins.font-import("OpenSans", "OpenSans/Light.ttf", normal, 300);
+@include mixins.font-import("OpenSans", "OpenSans/Regular.ttf", normal, 400);
+@include mixins.font-import("OpenSans", "OpenSans/SemiBold.ttf", normal, 500);
+@include mixins.font-import("OpenSans", "OpenSans/Bold.ttf", normal, 600);
+@include mixins.font-import("OpenSans", "OpenSans/Medium.ttf", normal, 700);
+@include mixins.font-import("OpenSans", "OpenSans/ExtraBold.ttf", normal, 800);
 
-@include mixins.font-import("Roboto", "Roboto-LightItalic.ttf", italic, 300);
-@include mixins.font-import("Roboto", "Roboto-Italic.ttf", italic, 400);
-@include mixins.font-import("Roboto", "Roboto-MediumItalic.ttf", italic, 500);
-@include mixins.font-import("Roboto", "Roboto-BoldItalic.ttf", italic, 600);
+@include mixins.font-import("OpenSans", "OpenSans/LightItalic.ttf", italic, 300);
+@include mixins.font-import("OpenSans", "OpenSans/Italic.ttf", italic, 400);
+@include mixins.font-import("OpenSans", "OpenSans/SemiBoldItalic.ttf", italic, 500);
+@include mixins.font-import("OpenSans", "OpenSans/BoldItalic.ttf", italic, 600);
+@include mixins.font-import("OpenSans", "OpenSans/MediumItalic.ttf", italic, 700);
+@include mixins.font-import("OpenSans", "OpenSans/ExtraBoldItalic.ttf", italic, 800);
 
 textarea,
 input,
 button {
-    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-family: "OpenSans", Arial, Helvetica, sans-serif;
 }
 
 body {

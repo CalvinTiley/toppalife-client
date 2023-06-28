@@ -1,6 +1,6 @@
 import { Task } from "./task";
 
-export interface DashProjectCard {
+export interface Project {
     tasks: Task[];
     title: string;
 }

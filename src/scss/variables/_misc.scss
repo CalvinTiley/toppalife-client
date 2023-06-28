@@ -1,6 +1,6 @@
 @use "sass:color";
 
 @mixin miscellaneous {
-    --box-shadow: 0 0.8rem 1.6rem 0 color.adjust(black, $alpha: -0.9);
+    --box-shadow: 0 0.8rem 1.6rem 0 #{color.adjust(black, $alpha: -0.9)};
     --timing: 250ms;
 }

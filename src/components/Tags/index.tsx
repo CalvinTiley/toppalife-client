@@ -1,9 +1,8 @@
 import classNames from "classnames";
-import { Tag } from "../../types/tag";
 
 interface TagProps {
     className?: string | string[];
-    items: Tag[];
+    items: string[];
 }
 
 export const Tags = ({
@@ -12,8 +11,8 @@ export const Tags = ({
 }: TagProps) => {
     return (
         <div className={classNames("tags", className)}>
-            {items.map(item => (
-                <span className={classNames("tags__item", `tags__item--${item.variant}`)}>{item.label}</span>
+            {items.map(tag => (
+                <span className="tags__item">{tag}</span>
             ))}
         </div>
     );
