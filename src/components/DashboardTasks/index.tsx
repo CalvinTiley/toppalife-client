@@ -16,7 +16,7 @@ export const DashboardTasks = ({
     return (
         <div className="dashboard-tasks">
             {taskLists.map(taskList => (
-                <div className="dashboard-tasks__container">
+                <div key={taskList.key} className="dashboard-tasks__container">
                     <h2
                         className="dashboard-tasks__heading"
                         id={`dashboard-task-container-${taskList.key}`}
@@ -29,7 +29,7 @@ export const DashboardTasks = ({
                         className={`dashboard-tasks__list dashboard-tasks__list--${taskList.key}`}
                     >
                         {taskList.items.map(task => (
-                            <Card className={classNames("card--task", `card--${taskList.key}`)}>
+                            <Card key={task.title} className={classNames("card--task", `card--${taskList.key}`)}>
                                 {task.tags?.length ? (
                                     <Tags items={task.tags} />
                                 ) : null}

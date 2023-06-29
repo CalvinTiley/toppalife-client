@@ -12,7 +12,7 @@ export const Tags = ({
     return (
         <div className={classNames("tags", className)}>
             {items.map(tag => (
-                <span className="tags__item">{tag}</span>
+                <span key={tag} className="tags__item">{tag}</span>
             ))}
         </div>
     );

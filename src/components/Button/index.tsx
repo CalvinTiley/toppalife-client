@@ -1,9 +1,8 @@
 import classNames from "classnames";
 import { Link } from "react-router-dom";
 
-interface ButtonsProps {
+interface ButtonsProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode;
-    className?: string | string[];
     href?: string;
     onClick?(event?: React.MouseEvent): void;
     variant?: "primary" | "secondary";
@@ -14,6 +13,7 @@ export const Button = ({
     className,
     href,
     onClick,
+    type = "button",
     variant = "primary",
 }: ButtonsProps) => {
     return (
@@ -29,6 +29,7 @@ export const Button = ({
                 <button
                     className={classNames("button", `button--${variant}`, className)}
                     onClick={onClick}
+                    type={type}
                 >
                     {children}
                 </button>
