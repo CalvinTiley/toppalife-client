@@ -1,4 +1,4 @@
-.page-sign-in {
+@mixin auth-screen {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -30,9 +30,9 @@
         display: grid;
         gap: 2rem;
         text-align: left;
-
-        [data-lastpass-icon-root] {
-            display: none;
-        }
     }
+}
+
+.page-sign-in {
+    @include auth-screen;
 }

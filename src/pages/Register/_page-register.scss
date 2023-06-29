@@ -1,0 +1,5 @@
+@use "../SignIn/page-sign-in" as sign-in;
+
+.page-register {
+    @include sign-in.auth-screen;
+}

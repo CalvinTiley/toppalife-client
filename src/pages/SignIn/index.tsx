@@ -8,9 +8,7 @@ interface SignInFormValues {
     password: string;
 }
 
-interface ResponseErrors {
-    email: string;
-    password: string;
+interface ResponseErrors extends SignInFormValues {
     form?: string;
 }
 
@@ -32,9 +30,7 @@ export const SignIn = () => {
         password
     }) => {
         const response = await (await fetch(`${import.meta.env.VITE_API_URL}/auth/login`, {
-            headers: {
-                "Content-Type": "application/json",
-            },
+            headers: { "Content-Type": "application/json" },
             method: "POST",
             body: JSON.stringify({ email, password }),
         })).json();
@@ -52,7 +48,7 @@ export const SignIn = () => {
 
             if (response.errors) {
                 response.errors.forEach((error: { message: string, path: string[] }) => {
-                    newErrors[error.path[0] as "email" | "password"] = error.message;
+                    newErrors[error.path[0] as keyof SignInFormValues] = error.message;
                 });
             }
 
@@ -67,13 +63,13 @@ export const SignIn = () => {
 
                 <form className="page-sign-in__form" onSubmit={handleSubmit(login)}>
                     <label htmlFor="email">Email</label>
-                    <input type="email" id="email" {...register("email", { required: true })} />
+                    <input type="email" id="email" data-lpignore="true" {...register("email", { required: true })} />
                     {errors.email || responseErrors.email ? (
                         <p>{(errors.email || responseErrors.email) as string}</p>
                     ) : null}
 
                     <label htmlFor="password">Password</label>
-                    <input type="password" id="password" {...register("password", { required: true, })} />
+                    <input type="password" id="password" data-lpignore="true" {...register("password", { required: true, })} />
                     {errors.password || responseErrors.password ? (
                         <p>{(errors.password || responseErrors.password) as string}</p>
                     ) : null}

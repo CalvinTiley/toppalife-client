@@ -1,10 +1,13 @@
 import { useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { AuthenticationContext } from "../contexts/Authentication";
+
+const publicRoutes = ["/signin", "/register"];
 
 export const useAuthentication = () => {
     const user = useContext(AuthenticationContext);
     const navigate = useNavigate();
+    const location = useLocation();
 
     useEffect(() => {
         if (!user?.email || !user.name) {
@@ -22,7 +25,7 @@ export const useAuthentication = () => {
                 } catch (error) {
                     user.update({ ...user, refreshToken: "" });
                 }
-            } else {
+            } else if (!publicRoutes.includes(location.pathname)) {
                 navigate("/signin");
                 console.log("hit 3");
             }

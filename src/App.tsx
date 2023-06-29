@@ -3,6 +3,7 @@ import { Home } from "./pages/Home";
 import { MobileBottomBar } from "./components/MobileBottomBar";
 import { SignIn } from "./pages/SignIn";
 import { useAuthentication } from "./hooks/useAuthentication";
+import { Register } from "./pages/Register";
 
 export const App = () => {
     const user = useAuthentication();
@@ -12,6 +13,7 @@ export const App = () => {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/signin" element={<SignIn />} />
+                <Route path="/register" element={<Register />} />
             </Routes>
 
             {user?.email && user.name && user.accessToken && user.refreshToken ? (

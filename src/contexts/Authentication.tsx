@@ -5,7 +5,7 @@ interface Props {
     children: React.ReactNode;
 }
 
-export const AuthenticationContext = createContext<User | null>(null);
+export const AuthenticationContext = createContext<User>({} as User);
 
 export const Authentication = ({
     children,
