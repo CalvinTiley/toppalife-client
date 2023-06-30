@@ -77,8 +77,6 @@ export const Register = () => {
                 navigate("/");
             }
         } catch (error: any) {
-            console.log(error);
-
             setResponseErrors({
                 confirm_password: "",
                 name: "",
