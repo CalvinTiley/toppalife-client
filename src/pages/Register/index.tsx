@@ -3,6 +3,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { Button } from "../../components/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthenticationContext } from "../../contexts/Authentication";
+import axios from "axios";
 
 interface RegisterFormValues {
     confirm_password: string;
@@ -39,41 +40,52 @@ export const Register = () => {
         name,
         password
     }) => {
-        const response = await (await fetch(`${import.meta.env.VITE_API_URL}/users/register`, {
-            headers: {
-                "Content-Type": "application/json",
-            },
-            method: "POST",
-            body: JSON.stringify({ email, password, name, confirm_password }),
-        })).json();
+        try {
+            const { data: response } = await axios.post(
+                `${import.meta.env.VITE_API_URL}/users/register`,
+                { email, password, name, confirm_password },
+            );
 
-        if (response.error || response.errors) {
-            const newErrors: ResponseErrors = {
+            if (response.error || response.errors) {
+                const newErrors: ResponseErrors = {
+                    confirm_password: "",
+                    name: "",
+                    email: "",
+                    form: "",
+                    password: "",
+                };
+
+                if (response.error) {
+                    newErrors.form = response.error;
+                }
+
+                if (response.errors) {
+                    response.errors.forEach((error: { message: string, path: string[] }) => {
+                        newErrors[error.path[0] as keyof RegisterFormValues] = error.message;
+                    });
+                }
+
+                setResponseErrors(newErrors);
+
+                return;
+            }
+
+            if (response.access_token && response.refresh_token && response.email && response.name) {
+                Object.keys(response).forEach(key => localStorage.setItem(key, response[key]));
+                updateUser(response);
+
+                navigate("/");
+            }
+        } catch (error: any) {
+            console.log(error);
+
+            setResponseErrors({
                 confirm_password: "",
                 name: "",
                 email: "",
-                form: "",
+                form: error.response?.data?.error || error.response?.data?.errors[0].message,
                 password: "",
-            };
-
-            if (response.error) {
-                newErrors.form = response.error;
-            }
-
-            if (response.errors) {
-                response.errors.forEach((error: { message: string, path: string[] }) => {
-                    newErrors[error.path[0] as keyof RegisterFormValues] = error.message;
-                });
-            }
-
-            setResponseErrors(newErrors);
-
-            return;
-        }
-
-        if (response.access_token && response.refresh_token && response.email && response.name && response.photo) {
-            updateUser(response);
-            navigate("/signin");
+            });
         }
     };
 

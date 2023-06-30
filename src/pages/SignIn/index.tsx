@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Button } from "../../components/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthenticationContext } from "../../contexts/Authentication";
+import axios from "axios";
 
 interface SignInFormValues {
     email: string;
@@ -13,6 +15,8 @@ interface ResponseErrors extends SignInFormValues {
 }
 
 export const SignIn = () => {
+    const navigate = useNavigate();
+    const user = useContext(AuthenticationContext);
     const [responseErrors, setResponseErrors] = useState<ResponseErrors>({
         email: "",
         form: "",
@@ -29,37 +33,56 @@ export const SignIn = () => {
         email,
         password
     }) => {
-        const response = await (await fetch(`${import.meta.env.VITE_API_URL}/auth/login`, {
-            headers: { "Content-Type": "application/json" },
-            method: "POST",
-            body: JSON.stringify({ email, password }),
-        })).json();
+        try {
+            const { data: response } = await axios.post(
+                `${import.meta.env.VITE_API_URL}/auth/login`,
+                { email, password }
+            );
 
-        if (response.error || response.errors) {
-            const newErrors: ResponseErrors = {
-                email: "",
-                form: "",
-                password: "",
-            };
+            if (response.error || response.errors) {
+                const newErrors: ResponseErrors = {
+                    email: "",
+                    form: "",
+                    password: "",
+                };
 
-            if (response.error) {
-                newErrors.form = response.error;
+                if (response.error) {
+                    newErrors.form = response.error;
+                }
+
+                if (response.errors) {
+                    response.errors.forEach((error: { message: string, path: string[] }) => {
+                        newErrors[error.path[0] as keyof SignInFormValues] = error.message;
+                    });
+                }
+
+                setResponseErrors(newErrors);
+                return;
             }
 
-            if (response.errors) {
-                response.errors.forEach((error: { message: string, path: string[] }) => {
-                    newErrors[error.path[0] as keyof SignInFormValues] = error.message;
+            if (response.access_token && response.refresh_token) {
+                Object.keys(response).forEach(key => localStorage.setItem(key, response[key]));
+
+                user.update({
+                    ...user,
+                    ...response,
                 });
-            }
 
-            setResponseErrors(newErrors);
+                navigate("/");
+            }
+        } catch (error: any) {
+            setResponseErrors({
+                email: "",
+                password: "",
+                form: error.response.data.error,
+            });
         }
     };
 
     return (
         <div className="page-sign-in">
             <div className="page-sign-in__container">
-                <h1 className="page-sign-in__title">Login</h1>
+                <h1 className="page-sign-in__title">Sign In</h1>
 
                 <form className="page-sign-in__form" onSubmit={handleSubmit(login)}>
                     <label htmlFor="email">Email</label>

@@ -1,9 +1,9 @@
 import { Dispatch, SetStateAction } from "react";
 
 export interface User {
-    accessToken: string;
+    access_token: string;
     email: string;
     name: string;
-    refreshToken: string;
+    refresh_token: string;
     update: Dispatch<SetStateAction<Omit<User, "update">>>;
 }

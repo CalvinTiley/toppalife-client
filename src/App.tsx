@@ -16,7 +16,7 @@ export const App = () => {
                 <Route path="/register" element={<Register />} />
             </Routes>
 
-            {user?.email && user.name && user.accessToken && user.refreshToken ? (
+            {user?.email && user.name && user.access_token && user.refresh_token ? (
                 <MobileBottomBar />
             ) : null}
         </>
