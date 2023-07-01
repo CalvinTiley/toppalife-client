@@ -10,15 +10,15 @@ export const useAuthentication = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
+    const userData = {
+        access_token: localStorage.getItem("access_token" as string) ?? "",
+        refresh_token: localStorage.getItem("refresh_token" as string) ?? "",
+        email: localStorage.getItem("email" as string) ?? "",
+        name: localStorage.getItem("name" as string) ?? "",
+    };
+
     useEffect(() => {
         if (!user?.access_token || !user.refresh_token || !user.email || !user.name) {
-            const userData = {
-                access_token: localStorage.getItem("access_token" as string) ?? "",
-                refresh_token: localStorage.getItem("refresh_token" as string) ?? "",
-                email: localStorage.getItem("email" as string) ?? "",
-                name: localStorage.getItem("name" as string) ?? "",
-            };
-
             user.update(userData);
 
             const refresh = async () => {
@@ -53,7 +53,9 @@ export const useAuthentication = () => {
                         { access_token: userData.access_token },
                     );
 
-                    navigate("/");
+                    if (authRoutes.includes(location.pathname)) {
+                        navigate("/");
+                    }
                 } catch (error) {
                     localStorage.removeItem("access_token");
                     user.update({ ...userData, access_token: "" });

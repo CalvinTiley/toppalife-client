@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Chart, Plugin } from "chart.js";
 import dayjs from "dayjs";
 import { Task } from "../../types/task";
@@ -30,7 +31,7 @@ const addCenterLabel = (
 
 const generatePlugins = (completedPercentage: number): Plugin<"doughnut">[] => {
     return [{
-        id: "doughnut-chart",
+        id: "todays-tasks-doughnut-chart",
         beforeDraw(chart) {
             addCenterLabel(chart, completedPercentage);
         },
@@ -47,13 +48,13 @@ const generateData = (completedPercentage: number) => {
     };
 };
 
-export const useTodaysTasks = (tasks: Task[]) => {
+export const useTodaysTasks = (tasks: Task[]) => useMemo(() => {
     const completedPercentage = getTodaysCompletedTasksPercentage(tasks);
-    const plugins = generatePlugins(completedPercentage);
     const data = generateData(completedPercentage);
+    const plugins = generatePlugins(completedPercentage);
 
     return {
-        plugins,
         data,
+        plugins,
     };
-};
+}, [tasks]);
