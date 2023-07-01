@@ -31,7 +31,7 @@
         font-weight: 600;
 
         &--complete {
-            color: #00ddb1;
+            color: var(--color-complete);
         }
     }
 

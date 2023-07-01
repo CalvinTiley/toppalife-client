@@ -21,7 +21,7 @@ const addCenterLabel = (
     ctx.restore();
 
     ctx.textBaseline = "top";
-    ctx.fillStyle = "#c699e3";
+    ctx.fillStyle = completedPercentage === 100 ? "#00dd6f" : "#c699e3";
 
     const text = `${completedPercentage}%`;
     const textX = Math.round((width - ctx.measureText(text).width) / 2);
@@ -45,7 +45,7 @@ const generateData = (completedPercentage: number) => {
         datasets: [{
             label: "",
             data: [completedPercentage, 100 - completedPercentage],
-            backgroundColor: ["#c699e3", "#302C42"],
+            backgroundColor: [completedPercentage === 100 ? "#00dd6f" : "#c699e3", "#302C42"],
         }],
     };
 };
