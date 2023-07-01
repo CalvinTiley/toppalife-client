@@ -12,19 +12,12 @@ interface TodaysTasksProps {
 export const TodaysTasks = ({
     tasks,
 }: TodaysTasksProps) => {
-    const { plugins, data, remaining } = useTodaysTasks(tasks);
+    const { plugins, data, progressText } = useTodaysTasks(tasks);
 
     return (
         <Card className="todays-tasks">
             <div className="todays-tasks__text">
-                <p className="todays-tasks__progress">
-                    You have
-                    <span className={classNames(
-                        "todays-tasks__highlight",
-                        { "todays-tasks__highlight--complete": !remaining }
-                    )}> {remaining} </span>
-                    tasks to do today!
-                </p>
+                {progressText}
 
                 <Button className="button--todays-tasks">
                     View Tasks

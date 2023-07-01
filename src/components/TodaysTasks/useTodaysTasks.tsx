@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { Chart, Plugin } from "chart.js";
 import dayjs from "dayjs";
 import { Task } from "../../types/task";
+import classNames from "classnames";
 
 const getTodaysCompletedTasks = (tasks: Task[]) => {
     const todaysTasks = tasks.filter(task => dayjs(task.due_date).isToday());
@@ -55,9 +56,20 @@ export const useTodaysTasks = (tasks: Task[]) => useMemo(() => {
     const data = generateData(percentage);
     const plugins = generatePlugins(percentage);
 
+    const progressText = (
+        <p className="todays-tasks__progress">
+            You have
+            <span className={classNames(
+                "todays-tasks__highlight",
+                { "todays-tasks__highlight--complete": !remaining }
+            )}> {remaining} </span>
+            tasks to do today!
+        </p>
+    );
+
     return {
         data,
         plugins,
-        remaining,
+        progressText,
     };
 }, [tasks]);
