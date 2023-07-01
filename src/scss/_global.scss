@@ -11,6 +11,10 @@
     font-family: "OpenSans", Montserrat, sans-serif;
 }
 
+[data-lastpass-icon-root] {
+    display: none;
+}
+
 *,
 * > * {
     box-sizing: border-box;

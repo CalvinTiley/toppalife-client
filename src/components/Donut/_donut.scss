@@ -6,20 +6,20 @@
 
     &__track {
         fill: transparent;
-        stroke: var(--color-background-2);
+        stroke: var(--color-background-1);
         stroke-width: 26;
     }
 
     &__progress {
         fill: transparent;
-        stroke: var(--color-primary);
+        stroke: var(--color-tertiary);
         stroke-width: 26;
         stroke-dasharray: 0 10000;
         transition: stroke-dasharray .3s ease;
     }
 
     &__text {
-        fill: var(--color-primary);
+        fill: var(--color-tertiary);
     }
 
     &__value {
@@ -32,19 +32,5 @@
 
     &__value-label {
         font-size: 0.9rem;
-    }
-
-    &.donut--todays-tasks {
-        .donut__track {
-            stroke: var(--color-background-2);
-        }
-
-        .donut__progress {
-            stroke: var(--color-background-1);
-        }
-
-        .donut__text {
-            fill: var(--color-background-1);
-        }
     }
 }

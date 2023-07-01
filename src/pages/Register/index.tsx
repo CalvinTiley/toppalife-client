@@ -122,7 +122,7 @@ export const Register = () => {
                         <p>{(responseErrors.form) as string}</p>
                     ) : null}
 
-                    <Link to="/signin">Already have an account?</Link>
+                    <Link to="/signin" className="page-register__link">Already have an account?</Link>
                 </form>
             </div>
         </div>

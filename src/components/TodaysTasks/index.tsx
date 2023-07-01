@@ -1,9 +1,10 @@
 import { Button } from "../Button";
+import { Card } from "../Card";
 import { Donut } from "../Donut";
 
 export const TodaysTasks = () => {
     return (
-        <div className="todays-tasks">
+        <Card className="todays-tasks">
             <div className="todays-tasks__text">
                 <p className="todays-tasks__progress">You have tasks to do today!</p>
 
@@ -15,6 +16,6 @@ export const TodaysTasks = () => {
             <div className="todays-tasks__completion">
                 <Donut value={10} valueLabel="Completed" className="donut--todays-tasks" size={100} />
             </div>
-        </div>
+        </Card>
     );
 };

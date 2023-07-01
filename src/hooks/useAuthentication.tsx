@@ -21,20 +21,6 @@ export const useAuthentication = () => {
 
             user.update(userData);
 
-            const validate = async () => {
-                try {
-                    await axios.post(
-                        `${import.meta.env.VITE_API_URL}/auth/validate`,
-                        { access_token: userData.access_token },
-                    );
-
-                    navigate("/");
-                } catch (error) {
-                    localStorage.removeItem("access_token");
-                    user.update({ ...userData, access_token: "" });
-                }
-            };
-
             const refresh = async () => {
                 try {
                     const { data: response } = await axios.post(
@@ -57,6 +43,22 @@ export const useAuthentication = () => {
                         email: "",
                         name: "",
                     });
+                }
+            };
+
+            const validate = async () => {
+                try {
+                    await axios.post(
+                        `${import.meta.env.VITE_API_URL}/auth/validate`,
+                        { access_token: userData.access_token },
+                    );
+
+                    navigate("/");
+                } catch (error) {
+                    localStorage.removeItem("access_token");
+                    user.update({ ...userData, access_token: "" });
+
+                    refresh();
                 }
             };
 

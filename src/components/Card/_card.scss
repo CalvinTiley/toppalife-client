@@ -8,6 +8,8 @@
     border-radius: 2rem;
     box-shadow: var(--box-shadow);
 
+    background-color: var(--color-background-2);
+
     &__content {
         flex-grow: 1;
         display: flex;
@@ -35,10 +37,5 @@
         border-radius: 100vw;
 
         background-color: var(--color-primary);
-    }
-
-    &.card--task {
-        background-color: var(--color-primary);
-        color: white;
     }
 }

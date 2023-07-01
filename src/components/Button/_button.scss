@@ -10,5 +10,5 @@
     letter-spacing: 0.05rem;
 
     @include mixins.button-variant("primary", var(--color-primary), white);
-    @include mixins.button-variant("secondary", var(--color-background-1), var(--color-primary));
+    @include mixins.button-variant("secondary", var(--color-secondary), #333);
 }
