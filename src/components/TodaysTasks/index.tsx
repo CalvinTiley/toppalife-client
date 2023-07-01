@@ -8,13 +8,18 @@ export const TodaysTasks = () => {
             <div className="todays-tasks__text">
                 <p className="todays-tasks__progress">You have tasks to do today!</p>
 
-                <Button className="button--todays-tasks" variant="secondary">
+                <Button className="button--todays-tasks">
                     View Tasks
                 </Button>
             </div>
 
             <div className="todays-tasks__completion">
-                <Donut value={10} valueLabel="Completed" className="donut--todays-tasks" size={100} />
+                <Donut
+                    value={10}
+                    valueLabel="Completed"
+                    className="donut--todays-tasks"
+                    size={100}
+                />
             </div>
         </Card>
     );

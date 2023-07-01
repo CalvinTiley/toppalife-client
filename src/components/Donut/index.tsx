@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { useDonut } from "./useDonut";
 
 interface DonutProps {
     className?: string | string[];
@@ -15,14 +16,13 @@ export const Donut = ({
     size = 100,
     strokeWidth = 12,
 }: DonutProps) => {
-    const halfSize = (size * 0.5);
-    const radius = halfSize - (strokeWidth * 0.5);
-    const circumference = 2 * Math.PI * radius;
-
-    const strokeValue = ((value * circumference) / 100);
-    const strokeDasharray = `${strokeValue} ${circumference}`;
-
-    const rotateValue = `rotate(-90 ${halfSize}, ${halfSize})`;
+    const {
+        halfSize,
+        label,
+        radius,
+        rotateValue,
+        strokeDasharray,
+    } = useDonut(size, strokeWidth, value, valueLabel);
 
     return (
         <svg
@@ -36,7 +36,7 @@ export const Donut = ({
                 cx={halfSize}
                 cy={halfSize}
                 transform={rotateValue}
-                style={{ strokeWidth: strokeWidth }}
+                style={{ strokeWidth }}
             />
 
             <circle
@@ -58,15 +58,7 @@ export const Donut = ({
 
                 <tspan className="donut__percent">%</tspan>
 
-                {valueLabel ? (
-                    <tspan
-                        className="donut__value-label"
-                        x={halfSize}
-                        y={halfSize + 10}
-                    >
-                        {valueLabel}
-                    </tspan>
-                ) : null}
+                {label}
             </text>
         </svg>
     );
