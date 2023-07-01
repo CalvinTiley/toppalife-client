@@ -8,7 +8,7 @@ export const useUserGreeting = () => {
     const initial = useMemo(() => name[0], [name]);
 
     const avatar = user.photo ? (
-        <img src={user.photo} />
+        <img src={user.photo} alt={`Photo of ${name}`} />
     ) : (
         <p className="user-greeting__initial">{initial}</p>
     );
