@@ -9,6 +9,8 @@
     box-shadow: var(--box-shadow);
 
     background-color: var(--color-background-2);
+    background-image: radial-gradient(circle at center 1rem, var(--color-background-3), var(--color-background-2));
+    background-repeat: no-repeat;
 
     &__content {
         flex-grow: 1;

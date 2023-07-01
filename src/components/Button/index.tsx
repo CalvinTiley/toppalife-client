@@ -23,6 +23,7 @@ export const Button = ({
             <NavLink
                 to={href}
                 className={classNames("button", "button--link", `button--${variant}`, className)}
+                aria-label={props["aria-label"]}
             >
                 {children}
             </NavLink>
@@ -34,6 +35,7 @@ export const Button = ({
             <Link
                 to={href}
                 className={classNames("button", "button--link", `button--${variant}`, className)}
+                aria-label={props["aria-label"]}
             >
                 {children}
             </Link>

@@ -18,7 +18,7 @@ export const UserGreeting = () => {
                 <p className="user-greeting__name">{name}</p>
             </div>
 
-            <Button className="button--user-greeting-notification">
+            <Button className="button--user-greeting-notification" aria-label="Notifications">
                 <Icon component={NotificationsIcon} />
             </Button>
         </div>
