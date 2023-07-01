@@ -5,6 +5,7 @@ import { SignIn } from "./pages/SignIn";
 import { useAuthentication } from "./hooks/useAuthentication";
 import { Register } from "./pages/Register";
 import { configure } from "./config";
+import { Projects } from "./pages/Projects";
 
 configure();
 
@@ -15,6 +16,7 @@ export const App = () => {
         <>
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/projects" element={<Projects />} />
                 <Route path="/signin" element={<SignIn />} />
                 <Route path="/register" element={<Register />} />
             </Routes>

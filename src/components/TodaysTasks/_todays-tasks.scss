@@ -24,6 +24,17 @@
         line-height: 2.5rem;
     }
 
+    &__highlight {
+        color: var(--color-tertiary);
+
+        font-size: 1.8rem;
+        font-weight: 600;
+
+        &--complete {
+            color: #00ddb1;
+        }
+    }
+
     .button__todays-tasks {
         text-align: left;
     }

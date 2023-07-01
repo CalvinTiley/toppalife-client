@@ -3,6 +3,8 @@
     align-items: center;
     gap: 2rem;
 
+    animation: fade-in forwards 1s;
+
     &__photo {
         display: flex;
         align-items: center;
@@ -37,5 +39,28 @@
     &__name {
         font-size: 2rem;
         font-weight: 600;
+    }
+
+    .button--user-greeting-notification {
+        margin-right: 1rem;
+
+        background-color: unset;
+
+        .icon {
+            width: 2.6rem;
+            height: 2.6rem;
+
+            color: var(--color-secondary);
+        }
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
     }
 }

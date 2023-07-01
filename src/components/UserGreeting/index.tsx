@@ -1,4 +1,7 @@
+import { Button } from "../Button";
 import { useUserGreeting } from "./useUserGreeting";
+import { ReactComponent as NotificationsIcon } from "../../assets/svg/notifications.svg";
+import Icon from "../Icon";
 
 export const UserGreeting = () => {
     const { avatar, name } = useUserGreeting();
@@ -14,6 +17,10 @@ export const UserGreeting = () => {
 
                 <p className="user-greeting__name">{name}</p>
             </div>
+
+            <Button className="button--user-greeting-notification">
+                <Icon component={NotificationsIcon} />
+            </Button>
         </div>
     );
 };

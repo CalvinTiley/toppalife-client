@@ -3,12 +3,14 @@ import { Chart, Plugin } from "chart.js";
 import dayjs from "dayjs";
 import { Task } from "../../types/task";
 
-const getTodaysCompletedTasksPercentage = (tasks: Task[]) => {
-    const todaysCompletedTasks = tasks.filter(task => (
-        dayjs(task.due_date).isToday() && task.current === task.total
-    ));
+const getTodaysCompletedTasks = (tasks: Task[]) => {
+    const todaysTasks = tasks.filter(task => dayjs(task.due_date).isToday());
+    const todaysCompletedTasks = todaysTasks.filter(task => task.current === task.total);
 
-    return Math.round((todaysCompletedTasks.length / tasks.length) * 100);
+    return {
+        remaining: todaysTasks.length - todaysCompletedTasks.length,
+        percentage: Math.round((todaysCompletedTasks.length / todaysTasks.length) * 100),
+    };
 };
 
 const addCenterLabel = (
@@ -49,12 +51,13 @@ const generateData = (completedPercentage: number) => {
 };
 
 export const useTodaysTasks = (tasks: Task[]) => useMemo(() => {
-    const completedPercentage = getTodaysCompletedTasksPercentage(tasks);
-    const data = generateData(completedPercentage);
-    const plugins = generatePlugins(completedPercentage);
+    const { remaining, percentage } = getTodaysCompletedTasks(tasks);
+    const data = generateData(percentage);
+    const plugins = generatePlugins(percentage);
 
     return {
         data,
         plugins,
+        remaining,
     };
 }, [tasks]);

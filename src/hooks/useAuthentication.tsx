@@ -59,8 +59,6 @@ export const useAuthentication = () => {
                 } catch (error) {
                     localStorage.removeItem("access_token");
                     user.update({ ...userData, access_token: "" });
-
-                    refresh();
                 }
             };
 
