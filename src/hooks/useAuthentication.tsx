@@ -19,6 +19,8 @@ export const useAuthentication = () => {
                 name: localStorage.getItem("name" as string) ?? "",
             };
 
+            user.update(userData);
+
             const validate = async () => {
                 try {
                     await axios.post(

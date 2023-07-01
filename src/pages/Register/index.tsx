@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { Button } from "../../components/Button";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthenticationContext } from "../../contexts/Authentication";
 import axios from "axios";
+import { Button } from "../../components/Button";
+import { AuthenticationContext } from "../../contexts/Authentication";
 
 interface RegisterFormValues {
     confirm_password: string;
@@ -111,7 +111,7 @@ export const Register = () => {
                         <p>{(errors.password || responseErrors.password) as string}</p>
                     ) : null}
 
-                    <label htmlFor="confirm_password">Password</label>
+                    <label htmlFor="confirm_password">Confirm Password</label>
                     <input type="password" id="confirm_password" data-lpignore="true" {...register("confirm_password", { required: true, })} />
                     {errors.confirm_password || responseErrors.confirm_password ? (
                         <p>{(errors.confirm_password || responseErrors.confirm_password) as string}</p>

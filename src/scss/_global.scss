@@ -5,6 +5,8 @@
     @include variables.colors;
     @include variables.miscellaneous;
 
+    background-color: var(--color-background-1);
+
     font-size: 62.5%;
     font-family: "OpenSans", Montserrat, sans-serif;
 }
@@ -16,6 +18,8 @@
 
 body {
     margin: 0;
+
+    color: white;
 }
 
 #root {

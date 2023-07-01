@@ -7,17 +7,13 @@
     height: 100dvh;
     padding: 2rem;
 
-    background-image: url("../assets/images/login-background.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-
     &__container {
         text-align: center;
 
         padding: 2rem;
         border-radius: 2rem;
 
-        background-color: white;
+        background-color: var(--color-background-2);
     }
 
     &__title {
