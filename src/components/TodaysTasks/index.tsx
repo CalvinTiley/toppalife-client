@@ -1,8 +1,18 @@
+import { Doughnut } from "react-chartjs-2";
 import { Button } from "../Button";
 import { Card } from "../Card";
-import { Donut } from "../Donut";
+import { useTodaysTasks } from "./useTodaysTasks";
+import { Task } from "../../types/task";
 
-export const TodaysTasks = () => {
+interface TodaysTasksProps {
+    tasks: Task[];
+}
+
+export const TodaysTasks = ({
+    tasks,
+}: TodaysTasksProps) => {
+    const { plugins, data } = useTodaysTasks(tasks);
+
     return (
         <Card className="todays-tasks">
             <div className="todays-tasks__text">
@@ -14,12 +24,9 @@ export const TodaysTasks = () => {
             </div>
 
             <div className="todays-tasks__completion">
-                <Donut
-                    value={10}
-                    valueLabel="Completed"
-                    className="donut--todays-tasks"
-                    size={100}
-                />
+                <div className="todays-tasks__chart">
+                    <Doughnut plugins={plugins} data={data} />
+                </div>
             </div>
         </Card>
     );

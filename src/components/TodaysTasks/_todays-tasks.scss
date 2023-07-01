@@ -31,5 +31,16 @@
     &__completion {
         display: flex;
         align-items: center;
+        justify-content: center;
+    }
+
+    &__chart {
+        width: 16rem;
+        height: 16rem;
+
+        @include mixins.mobile {
+            width: 12rem;
+            height: 12rem;
+        }
     }
 }

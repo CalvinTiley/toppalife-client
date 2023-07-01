@@ -1,9 +1,9 @@
 import dayjs from "dayjs";
 import { Task } from "../types/task";
 
-export const tasks: Task[] = [
+export const mockTasks: Task[] = [
     {
-        due_date: dayjs().format("dddd, MM, YYYY"),
+        due_date: dayjs().toISOString(),
         priority: "High",
         title: "Have Dinner",
         current: 10,
@@ -14,7 +14,7 @@ export const tasks: Task[] = [
         ],
     },
     {
-        due_date: dayjs().format("dddd, MM, YYYY"),
+        due_date: dayjs().toISOString(),
         priority: "Medium",
         title: "Walk dog",
         current: 0,
@@ -25,7 +25,7 @@ export const tasks: Task[] = [
         ],
     },
     {
-        due_date: dayjs().format("dddd, MM, YYYY"),
+        due_date: dayjs().toISOString(),
         priority: "Low",
         title: "Complete essay",
         current: 100,
@@ -35,7 +35,7 @@ export const tasks: Task[] = [
         ],
     },
     {
-        due_date: dayjs().format("dddd, MM, YYYY"),
+        due_date: dayjs().toISOString(),
         priority: "Low",
         title: "Fix door",
         current: 100,
@@ -46,7 +46,7 @@ export const tasks: Task[] = [
         ],
     },
     {
-        due_date: dayjs().format("dddd, MM, YYYY"),
+        due_date: dayjs().toISOString(),
         priority: "High",
         title: "Go for run",
         current: 0,
@@ -57,7 +57,7 @@ export const tasks: Task[] = [
         ],
     },
     {
-        due_date: dayjs().format("dddd, MM, YYYY"),
+        due_date: dayjs().toISOString(),
         priority: "High",
         title: "Go for run",
         current: 100,
@@ -68,7 +68,7 @@ export const tasks: Task[] = [
         ],
     },
     {
-        due_date: dayjs().format("dddd, MM, YYYY"),
+        due_date: dayjs().toISOString(),
         priority: "Medium",
         title: "Complete essay",
         current: 90,
@@ -78,7 +78,7 @@ export const tasks: Task[] = [
         ],
     },
     {
-        due_date: dayjs().format("dddd, MM, YYYY"),
+        due_date: dayjs().toISOString(),
         priority: "Medium",
         title: "Complete essay",
         current: 0,
@@ -88,7 +88,7 @@ export const tasks: Task[] = [
         ],
     },
     {
-        due_date: dayjs().format("dddd, MM, YYYY"),
+        due_date: dayjs().toISOString(),
         priority: "High",
         title: "Have Dinner",
         current: 0,

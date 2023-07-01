@@ -4,6 +4,9 @@ import { MobileBottomBar } from "./components/MobileBottomBar";
 import { SignIn } from "./pages/SignIn";
 import { useAuthentication } from "./hooks/useAuthentication";
 import { Register } from "./pages/Register";
+import { configure } from "./config";
+
+configure();
 
 export const App = () => {
     const user = useAuthentication();
