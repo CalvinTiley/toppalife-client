@@ -1,24 +1,18 @@
-import { useMemo, useState } from "react";
+import { useUserGreeting } from "./useUserGreeting";
 
 export const UserGreeting = () => {
-    const [name] = useState<string>("Calvin Tiley");
-    const initial = useMemo(() => name[0], [name]);
-    const [image] = useState<string | null>(null);
+    const { avatar, name } = useUserGreeting();
 
     return (
         <div className="user-greeting">
             <div className="user-greeting__photo">
-                {image ? (
-                    <img src={image} />
-                ) : (
-                    <p className="user-greeting__initial">{initial}</p>
-                )}
+                {avatar}
             </div>
 
             <div className="user-greeting__text">
                 <p className="user-greeting__welcome">Hello!</p>
 
-                <p className="user-greeting__name">Calvin Tiley</p>
+                <p className="user-greeting__name">{name}</p>
             </div>
         </div>
     );
