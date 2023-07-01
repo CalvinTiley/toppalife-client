@@ -39,6 +39,12 @@
         background-color: transparent;
         color: var(--color-primary);
 
+        &.active {
+            .icon {
+                color: var(--color-secondary);
+            }
+        }
+
         .icon {
             width: 2.4rem;
             height: 2.4rem;
