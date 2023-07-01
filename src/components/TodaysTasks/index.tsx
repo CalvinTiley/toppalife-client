@@ -3,7 +3,6 @@ import { Button } from "../Button";
 import { Card } from "../Card";
 import { useTodaysTasks } from "./useTodaysTasks";
 import { Task } from "../../types/task";
-import classNames from "classnames";
 
 interface TodaysTasksProps {
     tasks: Task[];
