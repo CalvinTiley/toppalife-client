@@ -37,6 +37,8 @@ main {
     overflow: hidden;
     padding: 3rem 2rem 9.5rem;
 
+    animation: fade-in forwards 1s;
+
     @include desktop {
         padding: 4rem;
     }

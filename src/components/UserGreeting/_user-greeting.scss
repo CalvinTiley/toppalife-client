@@ -3,8 +3,6 @@
     align-items: center;
     gap: 2rem;
 
-    animation: fade-in forwards 1s;
-
     &__photo {
         display: flex;
         align-items: center;
@@ -52,15 +50,5 @@
 
             color: var(--color-secondary);
         }
-    }
-}
-
-@keyframes fade-in {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
     }
 }
