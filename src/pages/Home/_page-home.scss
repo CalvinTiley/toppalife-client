@@ -1,4 +1,9 @@
 @use "../../scss/mixins";
 
 .page-home {
+    &__title {
+        opacity: 0;
+        position: absolute;
+        left: -200vw;
+    }
 }
