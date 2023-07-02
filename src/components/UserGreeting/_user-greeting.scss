@@ -3,12 +3,16 @@
     align-items: center;
     gap: 2rem;
 
+    padding: 1rem;
+    border-radius: 2rem;
+
     &__photo {
         display: flex;
         align-items: center;
         justify-content: center;
 
         width: 5rem;
+        min-width: 5rem;
         height: 5rem;
         border-radius: 50%;
 
@@ -35,13 +39,15 @@
     }
 
     &__name {
+        overflow: hidden;
+
         font-size: 2rem;
         font-weight: 600;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 
     .button--user-greeting-notification {
-        margin-right: 1rem;
-
         background-color: unset;
 
         .icon {

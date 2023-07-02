@@ -1,4 +1,4 @@
-@use "../../scss/mixins" as *;
+@use "../../scss/mixins";
 
 .mobile-bottom-bar {
     display: flex;
@@ -14,9 +14,9 @@
     border-top-left-radius: 2.5rem;
     border-top-right-radius: 2.5rem;
 
-    background-color: var(--color-background-2);
+    background: radial-gradient(circle at top center, transparent 3rem, var(--color-background-2) 3rem);
 
-    @include tablet {
+    @include mixins.tablet {
         display: none;
     }
 
